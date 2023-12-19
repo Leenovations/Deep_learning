@@ -25,7 +25,6 @@ with tf.Session() as sess:
     sess.run(tf.global_variables_initializer())
 
     for step in range(100):
-        _, cost_val = sess.run([train_op, cost], feed_dict={X:x, Y:y})
-        print(step, cost_val, sess.run(W), sess.run(b))
+        sess.run(train_op, feed_dict={X:x, Y:y})
 
     print(sess.run(hypothesis, feed_dict={X:10}))
